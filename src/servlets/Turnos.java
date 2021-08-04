@@ -104,15 +104,18 @@ public class Turnos extends HttpServlet {
 		Date nuevaFecha = new Date();
 
 		if(turno != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			String fechaConHora = turno.getFecha().toString()+" ";
-			fechaConHora += turno.getHora().getHours()==9?"0":"";
-			fechaConHora += turno.getHora().getHours()+":00:00";
-			try {
-				fechaAnterior = sdf.parse(fechaConHora);
-				nuevaFecha = fechaAnterior;
-			} catch (ParseException e) {
-				e.printStackTrace();
+			//compareTo para ver si la fecha de la db es menor que el dia de hoy. 
+			if(turno.getHora().compareTo(new Date()) >= 0) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaConHora = turno.getFecha().toString()+" ";
+				fechaConHora += turno.getHora().getHours()==9?"0":"";
+				fechaConHora += turno.getHora().getHours()+":00:00";
+				try {
+					fechaAnterior = sdf.parse(fechaConHora);
+					nuevaFecha = fechaAnterior;
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		int diaDeLaSemana = fechaAnterior.getDay();

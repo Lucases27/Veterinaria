@@ -108,7 +108,7 @@ public class Turnos {
 	public Turno getUltimoTurno() {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM TURNOS WHERE Fecha = (SELECT MAX(Fecha) FROM TURNOS)",con);
+		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM turnos WHERE VIGENTE=1 ORDER BY FECHA DESC LIMIT 1",con);
 		Turno turno = null;
 		try {
 			while(turnosRS.next()) {

@@ -49,5 +49,8 @@
 				</div>
 			</div>
       	</div>
+      	<div>
+      		<a href="MascotasUsuario" class="btn btn-primary btn-sm">Volver</a>
+      	</div>
     </div>
 </section>
