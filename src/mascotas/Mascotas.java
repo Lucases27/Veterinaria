@@ -29,7 +29,7 @@ public class Mascotas {
 	public ArrayList<Mascota> getListaMascotas() {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet mascotaRs = DBConnection.sqlSelect("SELECT * FROM MASCOTAS",con);
+		ResultSet mascotaRs = DBConnection.sqlSelect("SELECT * FROM mascotas",con);
 		ArrayList<Mascota> listaMascotas = new ArrayList<Mascota>();
 		try {
 			while(mascotaRs.next()) {
@@ -59,7 +59,7 @@ public class Mascotas {
 	public ArrayList<Mascota> getListaMascotas(int idUsuario) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet mascotaRs = DBConnection.sqlSelect("SELECT * FROM MASCOTAS WHERE IDUSUARIO="+idUsuario,con);
+		ResultSet mascotaRs = DBConnection.sqlSelect("SELECT * FROM mascotas WHERE IdUsuario="+idUsuario,con);
 		ArrayList<Mascota> listaMascotas = new ArrayList<Mascota>();
 		try {
 			while(mascotaRs.next()) {
@@ -89,7 +89,7 @@ public class Mascotas {
 		Connection con = dbConnection.getConexion();
 		Mascota mascota = null;
 		try {
-			ResultSet mascotasRs = dbConnection.sqlSelect("SELECT * FROM MASCOTAS WHERE IdMascota="+idMascota, con);
+			ResultSet mascotasRs = dbConnection.sqlSelect("SELECT * FROM mascotas WHERE IdMascota="+idMascota, con);
 			//System.out.println(idMascota);
 			while(mascotasRs.next()) {
 				int idUsuario = mascotasRs.getInt(2);
@@ -118,7 +118,7 @@ public class Mascotas {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
 		try {
-			dbConnection.sqlUpdate("INSERT INTO MASCOTAS (IdUsuario, Nombre, Tipo, Edad, Peso)"
+			dbConnection.sqlUpdate("INSERT INTO mascotas (IdUsuario, Nombre, Tipo, Edad, Peso)"
 					+ "VALUES("+idUsuario+",'"+nombre+"','"+tipo+"',"+edad+","+peso+")", con);
 			System.out.println("Mascotas.addMascota() --> Agregado");
 		} catch (SQLException e) {
@@ -138,7 +138,7 @@ public class Mascotas {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
 		try {
-			dbConnection.sqlUpdate("UPDATE MASCOTAS SET Nombre='"+nombre+"', Tipo='"+tipo+"', "
+			dbConnection.sqlUpdate("UPDATE mascotas SET Nombre='"+nombre+"', Tipo='"+tipo+"', "
 					+ "Edad="+edad+", peso="+peso+" WHERE IdMascota="+idMascota, con);
 			System.out.println("Mascotas.updateMascota() --> Modificado");
 		} catch (SQLException e) {
@@ -154,7 +154,7 @@ public class Mascotas {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
 		try {
-			dbConnection.sqlUpdate("DELETE FROM MASCOTAS WHERE IdMascota="+idMascota, con);
+			dbConnection.sqlUpdate("DELETE FROM mascotas WHERE IdMascota="+idMascota, con);
 			System.out.println("Mascotas.deleteMascota() --> Borrado");
 		} catch (SQLException e) {
 			System.out.println("error al borrar mascota en deleteMascota()");
@@ -169,7 +169,7 @@ public class Mascotas {
 	public boolean existeMascota(int idMascota) {
 		DBConnection dBConnection = new DBConnection();
 		Connection con = dBConnection.getConexion();
-		boolean ok = dBConnection.sqlExist("Select IdMascota from Mascotas where IdMascota="+idMascota,con);
+		boolean ok = dBConnection.sqlExist("Select IdMascota from mascotas where IdMascota="+idMascota,con);
 		try {
 			con.close();
 		} catch (SQLException e) {

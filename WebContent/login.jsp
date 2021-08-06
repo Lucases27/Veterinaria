@@ -62,30 +62,8 @@
       </div>
     </div>
   </div>
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="index.jsp">Simple Vet</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-	<nav id="navbar" class="navbar order-last order-lg-0">
-		<ul>
-	    	<li><a class="nav-link scrollto active" href="index.jsp">Home</a></li>
-		  	<li><a class="nav-link scrollto" href="index.jsp#about">Sobre app</a></li>
-		  	<li><a class="nav-link scrollto" href="index.jsp#services">Servicios</a></li>
-		  	<li><a class="nav-link scrollto" href="index.jsp#departments">Tienda</a></li>
-			<li><a class="nav-link scrollto" href="Login?menuLogin=1">Ingresar</a></li>
-			<li><a class="nav-link scrollto" href="Login?menuLogin=2">Registrarme</a></li>
-	   </ul>
-	<i class="bi bi-list mobile-nav-toggle"></i>
-	
-    </nav><!-- .navbar -->
-
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Consulta vía </span>WhatsApp</a>
-
-    </div>
-  </header><!-- End Header -->
+<!-- HEADER -->
+<jsp:include page="includes/header.jsp"></jsp:include>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
@@ -134,25 +112,7 @@
 <script src="assets/vendor/purecounter/purecounter.js"></script>
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="js/Clase.js"></script>
-<!-- SCRIPT DE BOTONES REGISTRO/LOGIN -->
-<script type="text/javascript">
-	function Desactivar(){
-	    document.getElementById("fecha").disabled=true;
-	    document.getElementById("hora").disabled=true;
-	}
-	function Activar(){
-	document.getElementById("fecha").disabled=false;
-	document.getElementById("hora").disabled=false;
-	}
-	function MostrarIni(){
-	document.getElementById("faq").style.display="block";
-	document.getElementById("secreg").style.display="none";
-	}
-	function MostrarReg(){
-	document.getElementById("secreg").style.display="block";
-	document.getElementById("faq").style.display="none";
-	}
-</script>
+
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>

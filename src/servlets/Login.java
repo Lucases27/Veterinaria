@@ -50,12 +50,13 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = Validaciones.capitalize(request.getParameter("email").trim());
+		String email = request.getParameter("email").trim();
 		String pass = request.getParameter("pass").trim();
 		String errores = "";
 		String success = "";
 		String url = "login.jsp?menuLogin=1"; // vista de login.
-
+		email = email.isEmpty()?"":Validaciones.capitalize(email);
+		
 		if(Validaciones.validaCampo(email)) {
 			if(Validaciones.validaCampo(pass)) {
 				if(Usuarios.getInstance().existeUsuario(email)) {

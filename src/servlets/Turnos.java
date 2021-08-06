@@ -105,6 +105,7 @@ public class Turnos extends HttpServlet {
 
 		if(turno != null) {
 			//compareTo para ver si la fecha de la db es menor que el dia de hoy. 
+			// 30 julio 15:00hs 5 agosto 00:00hs
 			if(turno.getHora().compareTo(new Date()) >= 0) {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String fechaConHora = turno.getFecha().toString()+" ";
@@ -144,7 +145,9 @@ public class Turnos extends HttpServlet {
 			//Si no hay turno previo, la hora esta vacia y viene por el default
 		default: nuevaFecha.setHours(9);
 				 if(diaDeLaSemana < 5) {
-					 nuevaFecha.setDate(nuevaFecha.getDate()+1);
+					 nuevaFecha.setDate(nuevaFecha.getDate());
+					 //aca me parece que esta mal algo, revisar despues.
+					 System.out.println("la fecha nueva ----------> "+ nuevaFecha);
 				 }else {
 					 nuevaFecha.setDate(nuevaFecha.getDate()+3);
 				 }

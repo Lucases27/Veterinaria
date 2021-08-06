@@ -48,12 +48,13 @@ public class Registro extends HttpServlet {
 		
 		String nombreApellido = request.getParameter("nombre").trim();
 		String pass = request.getParameter("pass").trim();
-		String email = Validaciones.capitalize(request.getParameter("email").trim());
+		String email = request.getParameter("email").trim();
 		boolean esVeterinario = Boolean.parseBoolean(request.getParameter("veterinario"));
 		String errores = "";
 		String success = "";
 		String telefono = "";
 		String url = "login.jsp?menuLogin=2"; // vista del registro
+		email = email.isEmpty()?"":Validaciones.capitalize(email);
 		
 		if(Validaciones.validaNumLong(request.getParameter("telefono").trim())) {
 			telefono = request.getParameter("telefono").trim();

@@ -38,7 +38,7 @@ public class Usuarios {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
 		try {
-			DBConnection.sqlUpdate("INSERT INTO Usuarios (Usuario,Password,NombreApellido,Email,Telefono,isAdmin)"
+			DBConnection.sqlUpdate("INSERT INTO usuarios (Usuario,Password,NombreApellido,Email,Telefono,isAdmin)"
 								+ " VALUES ('"+user+"','"+pass+"','"+nombreApellido+"','"+email+"','"+telefono+"',0)",con);
 			System.out.println("se agrego supuestamente");
 			con.close();
@@ -62,7 +62,7 @@ public class Usuarios {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
 		try {
-			DBConnection.sqlUpdate("UPDATE Usuarios SET NombreApellido='"+nombreApellido+"', Password='"+pass+"', Email ='"+email+"', Telefono ='"+telefono+"' WHERE Usuario='"+user+"'",con);
+			DBConnection.sqlUpdate("UPDATE usuarios SET NombreApellido='"+nombreApellido+"', Password='"+pass+"', Email ='"+email+"', Telefono ='"+telefono+"' WHERE Usuario='"+user+"'",con);
 			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,7 +77,7 @@ public class Usuarios {
 	public void deleteUser(String user) throws SQLException {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		DBConnection.sqlUpdate("DELETE FROM Usuarios WHERE Usuario='"+user+"'",con);
+		DBConnection.sqlUpdate("DELETE FROM usuarios WHERE Usuario='"+user+"'",con);
 		con.close();
 	}
 	
@@ -89,7 +89,7 @@ public class Usuarios {
 	public ArrayList<Usuario> getUserList() {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet users = DBConnection.sqlSelect("SELECT * FROM USUARIOS",con);
+		ResultSet users = DBConnection.sqlSelect("SELECT * FROM usuarios",con);
 		ArrayList<Usuario> userList = new ArrayList<Usuario>();
 		try {
 			while(users.next()) {
@@ -127,7 +127,7 @@ public class Usuarios {
 		
 		ArrayList<Usuario> userList = new ArrayList<Usuario>();
 		try {
-			java.sql.PreparedStatement ps = con.prepareStatement("SELECT * FROM USUARIOS WHERE NombreApellido LIKE '%"+nombre+"%'");
+			java.sql.PreparedStatement ps = con.prepareStatement("SELECT * FROM usuarios WHERE NombreApellido LIKE '%"+nombre+"%'");
 			//ps.setString(1, columna);
 			//ps.setString(2, "'%"+nombre+"%'");
 			ResultSet users = ps.executeQuery();
@@ -164,7 +164,7 @@ public class Usuarios {
 	public Usuario getUser(String userName) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet users = DBConnection.sqlSelect("SELECT * FROM USUARIOS WHERE Usuario='"+userName+"'", con);
+		ResultSet users = DBConnection.sqlSelect("SELECT * FROM usuarios WHERE Usuario='"+userName+"'", con);
 		try {
 			while(users.next()) {
 				int id = users.getInt(1);
@@ -195,7 +195,7 @@ public class Usuarios {
 	public Usuario getUser(int idUsuario) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet users = DBConnection.sqlSelect("SELECT * FROM USUARIOS WHERE IDUSUARIO="+idUsuario, con);
+		ResultSet users = DBConnection.sqlSelect("SELECT * FROM usuarios WHERE IdUsuario="+idUsuario, con);
 		
 		try {
 			while(users.next()) {
@@ -227,7 +227,7 @@ public class Usuarios {
 	public Boolean isAdmin(int id){
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
-		ResultSet rs = dbConnection.sqlSelect("Select IsAdmin from Usuarios where IdUsuario="+id,con);
+		ResultSet rs = dbConnection.sqlSelect("Select IsAdmin from usuarios where IdUsuario="+id,con);
 		boolean isAdmin=false;
 		try {
 			while(rs.next()){
@@ -250,7 +250,7 @@ public class Usuarios {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
 		try {
-			DBConnection.sqlUpdate("UPDATE Usuarios SET isAdmin='1' WHERE IDUSUARIO='"+id+"'",con);
+			DBConnection.sqlUpdate("UPDATE usuarios SET isAdmin='1' WHERE IdUsuario='"+id+"'",con);
 			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -266,7 +266,7 @@ public class Usuarios {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
 		try {
-			DBConnection.sqlUpdate("UPDATE Usuarios SET isAdmin='0' WHERE IDUSUARIO='"+id+"'",con);
+			DBConnection.sqlUpdate("UPDATE usuarios SET isAdmin='0' WHERE IdUsuario='"+id+"'",con);
 			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -282,7 +282,7 @@ public class Usuarios {
 	public boolean validaUser(String user, String pass) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		boolean ok = DBConnection.sqlExist("Select Usuario from Usuarios where Usuario='"+user+"' and Password='"+pass+"'",con);
+		boolean ok = DBConnection.sqlExist("Select Usuario from usuarios where Usuario='"+user+"' and Password='"+pass+"'",con);
 		try {
 			con.close();
 		} catch (SQLException e) {
@@ -299,7 +299,7 @@ public class Usuarios {
 	public boolean existeUsuario(String user) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		boolean ok = DBConnection.sqlExist("Select Usuario from Usuarios where Usuario='"+user+"'",con);
+		boolean ok = DBConnection.sqlExist("Select Usuario from usuarios where Usuario='"+user+"'",con);
 		try {
 			con.close();
 		} catch (SQLException e) {
@@ -316,7 +316,7 @@ public class Usuarios {
 	public boolean existeUsuario(int id) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		boolean ok = DBConnection.sqlExist("Select Usuario from Usuarios where IdUsuario="+id,con);
+		boolean ok = DBConnection.sqlExist("Select Usuario from usuarios where IdUsuario="+id,con);
 		try {
 			con.close();
 		} catch (SQLException e) {
@@ -333,7 +333,7 @@ public class Usuarios {
 	 */
 	public boolean existeEmail(String email) {
 		DBConnection dbConnection = new DBConnection();
-		return dbConnection.sqlExist("SELECT Email from Usuarios where email='"+email+"'");
+		return dbConnection.sqlExist("SELECT Email from usuarios where Email='"+email+"'");
 	}
 	
 	/**
@@ -345,7 +345,7 @@ public class Usuarios {
 	 */
 	public boolean updateEmail(String email, int id) {
 		DBConnection dbConnection = new DBConnection();
-		return dbConnection.sqlExist("SELECT Email from Usuarios where email='"+email+"' and idusuario<>"+id);
+		return dbConnection.sqlExist("SELECT Email from usuarios where email='"+email+"' and IdUsuario<>"+id);
 	}
 	
 	/**
@@ -355,12 +355,12 @@ public class Usuarios {
 	 */
 	public boolean existeTelefono(String telefono) {
 		DBConnection dbConnection = new DBConnection();
-		return dbConnection.sqlExist("SELECT Telefono from Usuarios where Telefono='"+telefono+"'");
+		return dbConnection.sqlExist("SELECT Telefono from usuarios where Telefono='"+telefono+"'");
 	}
 	
 	public boolean updateTelefono(String telefono, int id) {
 		DBConnection dbConnection = new DBConnection();
-		return dbConnection.sqlExist("SELECT Telefono from Usuarios where Telefono='"+telefono+"' and idusuario<>"+id);
+		return dbConnection.sqlExist("SELECT Telefono from usuarios where Telefono='"+telefono+"' and IdUsuario<>"+id);
 	}
 	
 	/**

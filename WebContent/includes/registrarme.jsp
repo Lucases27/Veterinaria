@@ -35,7 +35,6 @@
 		    </div>
 		    <div class="col-md-12 form-check mt-3" id="">
 		        <input class="form-check-input" type="checkbox" name="veterinario" value="True" id="veterinario" >
-		        <label class="form-check-label" for="veterinario">Soy Veterinario</label>
 		    </div>
 		    <div class="col-12 text-center mb-n5">
 		    	<button class="btn btn-primary center-block" type="submit" name="register">Enviar</button>

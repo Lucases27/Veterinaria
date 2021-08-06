@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.mysql.jdbc.PreparedStatement;
 
 import util.DBConnection;
 
@@ -32,7 +31,7 @@ public class Historias {
 	public ArrayList<Historia> getListaHistorias() {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM HISTORIAS",con);
+		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM historias",con);
 		ArrayList<Historia> listaHistorias = new ArrayList<Historia>();
 		try {
 			while(historiaRs.next()) {
@@ -61,7 +60,7 @@ public class Historias {
 	public ArrayList<Historia> getListaHistorias(int idMascota) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM HISTORIAS WHERE IDMASCOTA="+idMascota,con);
+		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM historias WHERE IdMascota="+idMascota,con);
 		ArrayList<Historia> listaHistorias = new ArrayList<Historia>();
 		try {
 			while(historiaRs.next()) {
@@ -93,7 +92,7 @@ public class Historias {
 		Connection con = dbConnection.getConexion();
 		Date fecha = new Date();
 		try {
-			dbConnection.sqlUpdate("UPDATE HISTORIAS SET Patologia='"+patologia+"', Vacunas='"+vacunas+"', "
+			dbConnection.sqlUpdate("UPDATE historias SET Patologia='"+patologia+"', Vacunas='"+vacunas+"', "
 					+ "Descripcion='"+descripcion+"', Fecha='"+fecha+"' WHERE IdMascota="+idMascota, con);
 			System.out.println("Historias.updateHistoria() --> Modificado");
 		} catch (SQLException e) {
@@ -110,7 +109,7 @@ public class Historias {
 		Historia historia = null;
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM HISTORIAS WHERE IDMASCOTA="+idMascota,con);
+		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM historias WHERE IdMascota="+idMascota,con);
 		try {
 			while(historiaRs.next()) {
 				int idHistoria = historiaRs.getInt(1);
@@ -137,7 +136,7 @@ public class Historias {
 		Historia historia = null;
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM HISTORIAS WHERE IdHistoria="+idHistoria,con);
+		ResultSet historiaRs = DBConnection.sqlSelect("SELECT * FROM historias WHERE IdHistoria="+idHistoria,con);
 		try {
 			while(historiaRs.next()) {
 				int idMascota = historiaRs.getInt(2);
@@ -163,7 +162,7 @@ public class Historias {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
 		try {
-			dbConnection.sqlUpdate("DELETE FROM HISTORIAS WHERE IdMascota="+idMascota, con);
+			dbConnection.sqlUpdate("DELETE FROM historias WHERE IdMascota="+idMascota, con);
 			System.out.println("Historias.deleteHistoria() --> Borrado");
 		} catch (SQLException e) {
 			System.out.println("error al borrar la historia en deleteHistoria()");
@@ -181,7 +180,7 @@ public class Historias {
 	public void addHistoria(int idMascota, String patologia, String vacunas, String descripcion) {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
-		String query = "INSERT INTO HISTORIAS (IdMascota,Patologia,Vacunas,Descripcion) VALUES (?,?,?,?)";
+		String query = "INSERT INTO historias (IdMascota,Patologia,Vacunas,Descripcion) VALUES (?,?,?,?)";
 		try {
 			java.sql.PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, idMascota);

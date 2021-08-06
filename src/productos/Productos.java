@@ -3,16 +3,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-import com.mysql.jdbc.PreparedStatement;
 
 import util.DBConnection;
 
 
 public class Productos{
-	//Guarda codigos como keys y productos como value.
-	private HashMap<Integer, Producto> productosLista = new HashMap<Integer, Producto>();
 	private static Productos Productos = null;
 	
 	private Productos() {
@@ -42,7 +38,7 @@ public class Productos{
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
 		try {
-			DBConnection.sqlUpdate("INSERT INTO Productos (nombre,precio,cantidad,descripcion)"
+			DBConnection.sqlUpdate("INSERT INTO productos (Nombre,Precio,Cantidad,Descripcion)"
 								+ " VALUES ('"+nombre+"','"+precio+"','"+cantidad+"','"+descripcion+"')",con);
 			System.out.println("producto agregado");
 			con.close();
@@ -66,7 +62,7 @@ public class Productos{
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
 		try {
-			DBConnection.sqlUpdate("UPDATE Productos SET Nombre='"+nombre+"', Precio ='"+precio+"', Cantidad ='"+cantidad+"', Descripcion = '"+descripcion+"' WHERE IdProducto='"+idProducto+"'",con);
+			DBConnection.sqlUpdate("UPDATE productos SET Nombre='"+nombre+"', Precio ='"+precio+"', Cantidad ='"+cantidad+"', Descripcion = '"+descripcion+"' WHERE IdProducto='"+idProducto+"'",con);
 			con.close();
 			return true;
 		} catch (SQLException e) {
@@ -84,7 +80,7 @@ public class Productos{
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
 		try {
-			DBConnection.sqlUpdate("DELETE FROM Productos WHERE IdProducto='"+idProducto+"'",con);
+			DBConnection.sqlUpdate("DELETE FROM productos WHERE IdProducto='"+idProducto+"'",con);
 			con.close();
 			return true;
 		} catch (SQLException e) {
@@ -102,7 +98,7 @@ public class Productos{
 	public ArrayList<Producto> getProductoLista() {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet productos = DBConnection.sqlSelect("SELECT * FROM PRODUCTOS",con);
+		ResultSet productos = DBConnection.sqlSelect("SELECT * FROM productos",con);
 		ArrayList<Producto> prodList = new ArrayList<Producto>();
 		try {
 			while(productos.next()) {
@@ -132,7 +128,7 @@ public class Productos{
 	public Producto getProducto(int idProducto) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet productos = DBConnection.sqlSelect("SELECT * FROM PRODUCTOS WHERE IdProducto='"+idProducto+"'", con);
+		ResultSet productos = DBConnection.sqlSelect("SELECT * FROM productos WHERE IdProducto='"+idProducto+"'", con);
 		Producto producto = null;
 		try {
 			while(productos.next()) {
@@ -161,7 +157,7 @@ public class Productos{
 	public boolean existeProducto(int idProducto) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		boolean ok = DBConnection.sqlExist("Select IdProducto from Productos where IdProducto='"+idProducto+"'",con);
+		boolean ok = DBConnection.sqlExist("Select IdProducto from productos where IdProducto='"+idProducto+"'",con);
 		try {
 			con.close();
 		} catch (SQLException e) {
@@ -178,7 +174,7 @@ public class Productos{
 	public boolean existeProducto(String nombre) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		boolean ok = DBConnection.sqlExist("Select Nombre from Productos where Nombre='"+nombre.trim().toLowerCase()+"'",con);
+		boolean ok = DBConnection.sqlExist("Select Nombre from productos where Nombre='"+nombre.trim().toLowerCase()+"'",con);
 		try {
 			con.close();
 		} catch (SQLException e) {
@@ -198,49 +194,11 @@ public class Productos{
 		Connection con = DBConnection.getConexion();
 		
 		try {
-			DBConnection.sqlUpdate("UPDATE Productos SET Cantidad='"+cantidad+"' WHERE IdProducto='"+idProducto+"'",con);
+			DBConnection.sqlUpdate("UPDATE productos SET Cantidad='"+cantidad+"' WHERE IdProducto='"+idProducto+"'",con);
 			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	
-	public HashMap<Integer,Producto> getStock() {
-		return productosLista;
-	}
-	
-	/**
-	 * Setea el hashmap temporal de productos desde otro hashmap.
-	 * @param productos
-	 */
-	public void setStock(HashMap<Integer, Producto> productos) {
-		productosLista.clear();
-		for (Integer key : productos.keySet()) {
-			productosLista.put(key, productos.get(key));
-		}
-	}
-	
-	/**
-	 *  Busca la key, si existe devuele true 
-	 *  
-	 */
-	public boolean existeIdProducto(int idProducto) {
-		return productosLista.containsKey(idProducto);
-	}
-	
-	/**
-	 * borra un objecto producto de la lista, del hashmap.
-	 * @param codigo
-	 * @return true si se ha borrado, false en caso que no exista.
-	 */
-	public boolean borrarProducto(int idProducto) {
-		boolean bool=false;
-		if(existeIdProducto(idProducto)) {
-			productosLista.remove(idProducto);
-			bool=true;
-		}
-		return bool;
 	}
 	
 	/**
@@ -251,7 +209,7 @@ public class Productos{
 	 */
 	public boolean updateNombre(String nombre, int idProducto) {
 		DBConnection DBConnection = new DBConnection();
-		boolean ok = DBConnection.sqlExist("Select Nombre from Productos where Nombre='"+nombre+"' and IdProducto<>"+idProducto);
+		boolean ok = DBConnection.sqlExist("Select Nombre from productos where Nombre='"+nombre+"' and IdProducto<>"+idProducto);
 		return ok;
 	}
 	
@@ -265,7 +223,7 @@ public class Productos{
 		Connection con = DBConnection.getConexion();
 		
 		try {
-			DBConnection.sqlUpdate("UPDATE Productos SET Descripcion='"+descripcion+"' WHERE IdProducto='"+idProducto+"'",con);
+			DBConnection.sqlUpdate("UPDATE productos SET Descripcion='"+descripcion+"' WHERE IdProducto='"+idProducto+"'",con);
 			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -281,7 +239,7 @@ public class Productos{
 		String descripcion = null;
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet productos = DBConnection.sqlSelect("Select Descripcion from Productos WHERE IdProducto='"+idProducto+"'",con);
+		ResultSet productos = DBConnection.sqlSelect("Select Descripcion from productos WHERE IdProducto='"+idProducto+"'",con);
 		try {
 			while(productos.next()) {
 				descripcion = productos.getString(1);			
@@ -301,7 +259,7 @@ public class Productos{
 	public boolean addImgLink(String imgLink, String nombre) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		String sql = "UPDATE Productos SET ImgLink= ? WHERE Nombre= ?";
+		String sql = "UPDATE productos SET ImgLink= ? WHERE Nombre= ?";
 		try {
 			java.sql.PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, imgLink);

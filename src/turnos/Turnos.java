@@ -6,9 +6,6 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-
-import mascotas.Mascota;
-import mascotas.Mascotas;
 import util.DBConnection;
 
 public class Turnos {
@@ -33,7 +30,7 @@ public class Turnos {
 	public ArrayList<Turno> getListaTurnos() {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM TURNOS ORDER BY FECHA DESC",con);
+		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM turnos ORDER BY Fecha DESC",con);
 		ArrayList<Turno> listaTurnos = new ArrayList<Turno>();
 		try {
 			while(turnosRS.next()) {
@@ -66,7 +63,7 @@ public class Turnos {
 	public ArrayList<Turno> getListaTurnos(int idUsuario) {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM TURNOS WHERE IDUSUARIO="+idUsuario+" ORDER BY FECHA DESC",con);
+		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM turnos WHERE IdUsuario="+idUsuario+" ORDER BY Fecha DESC",con);
 		ArrayList<Turno> listaTurnos = new ArrayList<Turno>();
 		try {
 			while(turnosRS.next()) {
@@ -97,7 +94,7 @@ public class Turnos {
 	 */
 	public boolean tieneTurno(int idUsuario) {
 		DBConnection DBConnection = new DBConnection();
-		String query  = "SELECT * FROM TURNOS WHERE IDUSUARIO="+idUsuario+" AND VIGENTE = 1";
+		String query  = "SELECT * FROM turnos WHERE IdUsuario="+idUsuario+" AND Vigente = 1";
 		return DBConnection.sqlExist(query);
 	}
 	
@@ -108,7 +105,7 @@ public class Turnos {
 	public Turno getUltimoTurno() {
 		DBConnection DBConnection = new DBConnection();
 		Connection con = DBConnection.getConexion();
-		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM turnos WHERE VIGENTE=1 ORDER BY FECHA DESC LIMIT 1",con);
+		ResultSet turnosRS = DBConnection.sqlSelect("SELECT * FROM turnos WHERE Vigente=1 ORDER BY Fecha DESC LIMIT 1",con);
 		Turno turno = null;
 		try {
 			while(turnosRS.next()) {
@@ -143,7 +140,7 @@ public class Turnos {
 	public void addTurno(Turno turno) {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
-		String query = "INSERT INTO TURNOS (IdUsuario, NombreApellido, Telefono, Fecha) VALUES (?,?,?,?)";
+		String query = "INSERT INTO turnos (IdUsuario, NombreApellido, Telefono, Fecha) VALUES (?,?,?,?)";
 		try {
 			java.sql.PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, turno.getIdUsuario());
@@ -167,7 +164,7 @@ public class Turnos {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
 		try {
-			dbConnection.sqlUpdate("DELETE FROM TURNOS WHERE IdTurno="+idTurno, con);
+			dbConnection.sqlUpdate("DELETE FROM turnos WHERE IdTurno="+idTurno, con);
 		} catch (SQLException e) {
 		}
 	}
@@ -180,7 +177,7 @@ public class Turnos {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
 		try {
-			dbConnection.sqlUpdate("UPDATE TURNOS SET VIGENTE = 0 WHERE IdTurno="+idTurno, con);
+			dbConnection.sqlUpdate("UPDATE turnos SET Vigente = 0 WHERE IdTurno="+idTurno, con);
 		} catch (SQLException e) {
 		}
 	}
