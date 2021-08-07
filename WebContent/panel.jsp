@@ -35,8 +35,8 @@
 		<div id="topbar" class="d-flex align-items-center fixed-top">
 			<div class="container d-flex justify-content-between">
 				<div class="contact-info d-flex align-items-center">
-					<i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">simple_vet@gmail.com</a>
-					<i class="bi bi-phone"></i> +1532528809
+					<i class="bi bi-envelope"></i> <a href="mailto:Simplevet.arg@gmail.com">Simplevet.arg@gmail.com</a>
+					<i class="bi bi-phone"></i> 4272-4759
 				</div>
 				<div class="d-none d-lg-flex social-links align-items-center">
 					<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -50,9 +50,6 @@
 		<jsp:include page="includes/header.jsp"></jsp:include>
 		<!-- ACA METER TODOS LOS INCLUDES DE USUARIO. TURNOS, MASCOTAS, ETC.. -->
 		<c:choose>
-			<c:when test="${param.turnos == 1}">
-				<jsp:include page="includes/turnos.jsp"></jsp:include>
-			</c:when>
 			<c:when test="${param.userPanel == 1}">
 				<jsp:include page="includes/user_panel.jsp"></jsp:include>
 			</c:when>

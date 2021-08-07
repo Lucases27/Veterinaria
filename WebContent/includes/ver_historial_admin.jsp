@@ -81,5 +81,8 @@
 				</div>
 			</div>
       	</div>
+      	<div>
+      		<a href="MascotasAdmin?userId=${idUsuarioHistorial}" class="btn btn-primary btn-sm">Volver</a>
+      	</div>
     </div>
 </section>

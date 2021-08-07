@@ -120,6 +120,9 @@
 			    <div class="text-right mt-4 p-0">
 					<a class="btn btn-outline-danger btn-sm" href="TiendaAdmin?agregar=1">Agregar Producto</a>
 				</div>
+				<div class="mt-1">
+		      		<a href="AdminPanel" class="btn btn-primary btn-sm">Volver</a>
+		      	</div>
 			</div>
       	</div>
     </div>

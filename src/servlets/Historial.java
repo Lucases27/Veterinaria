@@ -67,12 +67,27 @@ public class Historial extends HttpServlet {
 				idMascota = Integer.parseInt(request.getParameter("agregar"));
 				listaHistorias = Historias.getInstance().getListaHistorias(idMascota);
 				String nombreMascota = Mascotas.getInstance().getMascota(idMascota).getNombre();
+				idUsuario = Mascotas.getInstance().getMascota(idMascota).getIdUsuario();
 				request.setAttribute("idUsuarioHistorial", idUsuario);
 				request.setAttribute("idMascotaHistorial", idMascota);
 				request.setAttribute("nombreMascota", nombreMascota);
 				request.setAttribute("historial", listaHistorias);
 				url += "&agregar="+idMascota;
 			}
+		}
+		
+		if(request.getParameter("eliminar") != null) {
+			idHistoria = Integer.parseInt(request.getParameter("eliminar"));
+			idMascota = Historias.getInstance().getHistoriaPorId(idHistoria).getIdMascota();
+			Historias.getInstance().deleteHistoria(idHistoria);
+			listaHistorias = Historias.getInstance().getListaHistorias(idMascota);
+			String nombreMascota = Mascotas.getInstance().getMascota(idMascota).getNombre();
+			idUsuario = Mascotas.getInstance().getMascota(idMascota).getIdUsuario();
+			request.setAttribute("idUsuarioHistorial", idUsuario);
+			request.setAttribute("idMascotaHistorial", idMascota);
+			request.setAttribute("nombreMascota", nombreMascota);
+			request.setAttribute("historial", listaHistorias);
+			url = "panel.jsp?verHistorialAdmin=1";
 		}
 		
 		request.setAttribute("success", success);
@@ -104,6 +119,7 @@ public class Historial extends HttpServlet {
 			patologia = request.getParameter("patologia").trim();
 			vacunas = request.getParameter("vacunas").trim();
 			descripcion = request.getParameter("descripcion").trim();
+			idUsuario = Mascotas.getInstance().getMascota(idMascota).getIdUsuario();
 			if(Validaciones.validaCampo(patologia)) {
 				if(Validaciones.validaCampo(vacunas)) {
 					if(Validaciones.validaCampo(descripcion)) {
@@ -115,7 +131,7 @@ public class Historial extends HttpServlet {
 			}else errores = "Patología inválida";
 		}
 		
-		
+		request.setAttribute("idUsuarioHistorial", idUsuario);
 		request.setAttribute("historial", listaHistorias);
 		request.setAttribute("nombreMascota", nombreMascota);
 		request.setAttribute("idMascotaHistorial", idMascota);

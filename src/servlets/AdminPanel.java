@@ -33,7 +33,10 @@ public class AdminPanel extends HttpServlet {
 		String url = "panel.jsp?adminPanel=1";
 		if (session.getAttribute("isAdmin") == null) {
 			url = "index.jsp";
+			response.sendRedirect(url);
+			return;
 		}
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

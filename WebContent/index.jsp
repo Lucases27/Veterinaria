@@ -41,8 +41,8 @@
 	<div id="topbar" class="d-flex align-items-center fixed-top">
 		<div class="container d-flex justify-content-between">
 			<div class="contact-info d-flex align-items-center">
-				<i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">simple_vet@gmail.com</a>
-				<i class="bi bi-phone"></i> +1532528809
+				<i class="bi bi-envelope"></i> <a href="mailto:Simplevet.arg@gmail.com">Simplevet.arg@gmail.com</a>
+				<i class="bi bi-phone"></i> 4272-4759
 			</div>
 			<div class="d-none d-lg-flex social-links align-items-center">
 				<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -93,25 +93,18 @@
 	<section id="counts" class="counts">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-6">
+				<div class="col-lg-6 col-md-6">
 					<div class="count-box">
 						<i class="fas fa-user-md"></i>
-						<span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+						<span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
 						<p>Especialistas</p>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+				<div class="col-lg-6 col-md-6 mt-5 mt-md-0">
 					<div class="count-box">
 						<i class="far fa-hospital"></i>
-						<span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+						<span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
 						<p>Departmentos</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
-					<div class="count-box">
-						<i class="fas fa-award"></i>
-						<span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-						<p>Reconocimientos</p>
 					</div>
 				</div>
 			</div>
@@ -161,7 +154,7 @@
 					<div class="table-responsive">
 					    <table class="table table-bordered table-sm table-hover mb-0 text-center">
 				            <thead>
-				                <tr style="background:#003325;color:white" class="text-center">
+				                <tr style="background:#1977cc;color:white" class="text-center">
 				                	<td>Img</td>
 				                    <td>Nombre</td>
 				                    <td>Descripción</td>

@@ -155,14 +155,14 @@ public class Historias {
 	}
 	
 	/**
-	 * Borra la historia de una mascota segun su idmascota
+	 * Borra la historia de una mascota segun su idHistoria
 	 * @param idMascota
 	 */
-	public void deleteHistoria(int idMascota) {
+	public void deleteHistoria(int idHistoria) {
 		DBConnection dbConnection = new DBConnection();
 		Connection con = dbConnection.getConexion();
 		try {
-			dbConnection.sqlUpdate("DELETE FROM historias WHERE IdMascota="+idMascota, con);
+			dbConnection.sqlUpdate("DELETE FROM historias WHERE IdHistoria="+idHistoria, con);
 			System.out.println("Historias.deleteHistoria() --> Borrado");
 		} catch (SQLException e) {
 			System.out.println("error al borrar la historia en deleteHistoria()");

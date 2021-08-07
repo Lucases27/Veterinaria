@@ -9,7 +9,7 @@
 		<!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 		<nav id="navbar" class="navbar order-last order-lg-0">
 			<ul>
-				<li><a class="nav-link scrollto active" href="index.jsp#hero">Home</a></li>
+				<li><a class="nav-link scrollto " href="index.jsp#hero">Home</a></li>
 				<li><a class="nav-link scrollto" href="index.jsp#about">Sobre app</a></li>
 				<li><a class="nav-link scrollto" href="index.jsp#services">Servicios</a></li>
 				<li><a class="nav-link scrollto" href="index.jsp#tienda">Tienda</a></li>
@@ -33,6 +33,6 @@
 			</ul>
  			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav><!-- .navbar -->
-   		<a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Consulta vía </span>WhatsApp</a>
+   		<a href="https://api.whatsapp.com/send?phone=34123456789" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline">Consulta vía </span>WhatsApp</a>
 	</div>
 </header>

@@ -72,6 +72,9 @@
 				        </table>
 				    </div>
 				</div>
+				<div>
+      				<a href="AdminPanel" class="btn btn-primary btn-sm">Volver</a>
+  				</div>
 			</div>
       	</div>
     </div>

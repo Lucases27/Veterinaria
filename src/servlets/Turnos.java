@@ -177,37 +177,24 @@ public class Turnos extends HttpServlet {
 	}
 	
 	/**
-	 * Recibe un objeto del tipo Date, que contenga fecha y hora, y devuelve un String 
-	 * con formato Dia + Hora. ej: Lunes 17:00hs
+	 * Recibe un objeto del tipo Date, que contenga fecha y hora, y devuelve 
+	 * la hora en formato String
 	 * @param turno
-	 * @return
+	 * @return String "09:00hs"
 	 */
 	private String diaConHoraString(Date fecha) {
-		int dia = fecha.getDay();
 		String diaYHora = ""; 
-		switch (dia) {
-		case 1:diaYHora += "Lunes ";
-			break;
-		case 2:diaYHora += "Martes ";
-			break;
-		case 3:diaYHora += "Miercoles ";
-			break;
-		case 4:diaYHora += "Jueves ";
-			break;
-		case 5:diaYHora += "Viernes ";
-			break;
-		}
 		int hora = fecha.getHours();
 		String horaStr = hora==9?"0"+hora+":00hs":hora+":00hs";
 		diaYHora += horaStr;
-		
 		return diaYHora;
 	}
 	
 	/**
 	 * Este metodo devuelve un String con la fecha del turno a mostrar cuando el usuario saca un turno.
+	 * Este método es para mostrar en el momento que saca el turno.
 	 * @param fecha
-	 * @return
+	 * @return String "Lunes 9/8 a las 09:00hs"
 	 */
 	private String diaConHoraConNumeroString(Date fecha) {
 		int dia = fecha.getDay();

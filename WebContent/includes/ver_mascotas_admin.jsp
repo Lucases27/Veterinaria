@@ -50,7 +50,7 @@
 						</form>
 					</c:when>
 					<c:when test="${param.agregar > 0}">
-						<!-- FORMULARIO AGREGAR PRODUCTO-->
+						<!-- FORMULARIO AGREGAR MASCOTAS-->
 						<c:set var = "id"  value = "${userID}"/>
 						<form action="MascotasAdmin" method="POST">
 							<div class="form-group mt-2">
@@ -107,6 +107,9 @@
 					<a class="btn btn-outline-danger btn-sm" href="MascotasAdmin?agregar=${idUsuarioMascota}">Agregar Mascota</a>
 				</div>
 			</div>
+      	</div>
+			<div>
+      		<a href="UsuariosAdmin" class="btn btn-primary btn-sm">Volver</a>
       	</div>
     </div>
 </section>

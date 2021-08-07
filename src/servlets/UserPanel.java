@@ -36,12 +36,13 @@ public class UserPanel extends HttpServlet {
 			//refrescamos los datos de session
 			String user = (String) session.getAttribute("user");
 			Usuarios.getInstance().cargarSession(user, session);
+			if((boolean) session.getAttribute("isAdmin")) {
+				url = "AdminPanel";
+			}
 		}else url = "index.jsp";
-		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
-		
 	}
 
 	/**
