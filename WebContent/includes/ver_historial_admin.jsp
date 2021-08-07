@@ -13,15 +13,17 @@
     	<div class="section-title">
        		<h2>Mi Cuenta</h2>
       	</div>
-      	<div class="">
-      		<h5 class="">
-      			Historia de: ${nombreMascota}
-      		</h5>
-      	</div>
-      	<div class="col-12 d-flex">
-      		<div class="row d-flex justify-content-center col-4">
+      	
+      	<div class="row">
+      		<div class="col-3"></div>
+      		<div class="row d-flex justify-content-center col-6">
+	      		<div class="text-center">
+		      		<h5 class="">
+		      			Historia de: ${nombreMascota}
+		      		</h5>
+		      	</div>
 				<!-- MENSAJE DE EXITO/ERROR AL MODIFICAR -->
-				<div class="col-12 form-group mb-1 mt-2">
+				<div class="col-12 form-group mb-1 mt-2 text-center">
 					<h5 class="text-danger">
 						<c:out value="${errores}"></c:out>
 					</h5>
@@ -35,13 +37,16 @@
 						<c:set var = "idMascota"  value = "${idMascotaHistorial}"/>
 						<form action="Historial" method="POST">
 							<div class="form-group mt-2">
-								<label>Patología: <input class="form-control" type="text" name="patologia" placeholder="Patología"/></label>
+								<label for="patologia">Patología:</label> 
+								<input class="form-control" type="text" name="patologia" placeholder="Patología"/>
 							</div>
 							<div class="form-group mt-2">
-								<label>Vacunas: <input class="form-control" type="text" name="vacunas" placeholder="Vacunas"/></label>
+								<label for="vacunas">Vacunas:</label> 
+								<input class="form-control" type="text" name="vacunas" placeholder="Vacunas"/>
 							</div>
 							<div class="form-group">
-								<label>Descripción<input class="form-control" type="text" name="descripcion" placeholder="Descripción"/></label>
+								<label for="descripcion">Descripción</label>
+								<input class="form-control" type="text" name="descripcion" placeholder="Descripción"/>
 							</div>
 							<input type="hidden" value="${idMascota}" name="agregarHistoria"/>
 							<button type="submit" class="btn btn-primary form-control mb-4">Agregar Historia</button>
@@ -49,17 +54,17 @@
 					</c:when>
 				</c:choose>
 			</div>
-			
-	      	<div class="col-9 ml-n5 mt-n5 p-5">
-				<div class="container navbar-light  p-0" style="background-color: #e3f2fd;"> 
+			<div class="col-3"></div>
+	      	<div class="col-12">
 				    <div class="table-responsive">
 					    <table class="table table-bordered table-sm table-hover mb-0 text-center">
 				            <thead>
-				                <tr style="background:#003325;color:white" class="text-center">
+				                <tr style="background:#1977cc;color:white" class="text-center">
 				                    <td>Fecha</td>
 				                    <td>Patología</td>
 				                    <td>Vacunas</td>
 				                    <td>Descripción</td>
+				                    <td></td>
 				                </tr>
 				            </thead>
 			           		<tbody>
@@ -75,14 +80,13 @@
 				            </tbody>
 				        </table>
 				    </div>
-				</div>
 		        <div class="text-right mt-4 p-0">
 					<a class="btn btn-outline-danger btn-sm" href="Historial?agregar=${idMascotaHistorial}">Nueva Historia</a>
 				</div>
+		      	<div class="mt-2">
+		      		<a href="MascotasAdmin?userId=${idUsuarioHistorial}" class="btn btn-primary btn-sm">Volver</a>
+		      	</div>
 			</div>
-      	</div>
-      	<div>
-      		<a href="MascotasAdmin?userId=${idUsuarioHistorial}" class="btn btn-primary btn-sm">Volver</a>
       	</div>
     </div>
 </section>

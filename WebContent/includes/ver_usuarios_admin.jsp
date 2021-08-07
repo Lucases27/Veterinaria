@@ -13,10 +13,9 @@
     	<div class="section-title">
        		<h2>Mi Cuenta</h2>
       	</div>
-      	<div class="col-12 d-flex">
-      		<div class="row d-flex justify-content-center col-4">
+      	<div class="row d-flex">
 				<!-- MENSAJE DE EXITO/ERROR AL MODIFICAR -->
-				<div class="col-12 form-group mb-1 mt-2">
+				<div class="col-12 form-group mb-1 mt-2 text-center">
 					<h5 class="text-danger">
 						<c:out value="${errores}"></c:out>
 					</h5>
@@ -27,26 +26,28 @@
 				<!-- FORM BUSCAR USUARIO -->
 				<div class="col-12 form-group mb-1 mt-2">
 					<form class="" action="UsuariosAdmin" method="POST">
-			        	<div class="col-12">
+			        	<div class="col-12 text-center">
 			          		<label class="form-label">Buscar usuario</label>
-				          	<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre"> 
 				        </div>
 				        <div class="col-12 text-center">
+				          	<input type="text" class="" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre"> 
+				        </div>
+				        <div class="col-12 text-center mt-2">
 			          		<button class="btn btn-primary btn-sm" type="submit">Enviar</button>
 				        </div>
 	      			</form>
 				</div>
-			</div>
-	      	<div class="col-9 ml-n5 mt-n5 p-5">
-				<div class="container navbar-light  p-0" style="background-color: #e3f2fd;"> 
+	      	<div class="col-12 ml-n5 mt-n5 p-5">
 				    <div class="table-responsive">
 					    <table class="table table-bordered table-sm table-hover mb-0">
 				            <thead>
-				                <tr style="background:#003325;color:white" class="text-center">
+				                <tr style="background:#1977cc;color:white" class="text-center">
 				                    <td>Nombre</td>
 				                    <td>Email</td>
 				                    <td>Telefono</td>
 				                    <td>Tipo Usuario</td>
+				                    <td></td>
+    					            <td></td>
 				                </tr>
 				            </thead>
 			           		<tbody>
@@ -71,8 +72,7 @@
 				            </tbody>
 				        </table>
 				    </div>
-				</div>
-				<div>
+				<div class="mt-2">
       				<a href="AdminPanel" class="btn btn-primary btn-sm">Volver</a>
   				</div>
 			</div>

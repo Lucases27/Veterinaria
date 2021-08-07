@@ -42,8 +42,9 @@ public class Turnos extends HttpServlet {
 		String url = "panel.jsp?verTurnos=1", errores = "", success = "";
 		int idTurno = 0, idUsuario = 0;
 		
-		if(session == null) {
+		if(session.getAttribute("logeado") == null) {
 			response.sendRedirect("index.jsp");
+			session.invalidate();
 			return;
 		}
 		else {

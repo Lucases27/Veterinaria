@@ -8,10 +8,10 @@ import java.sql.Statement;
 
 public class DBConnection {
 	private static final String CONTROLADOR = "com.mysql.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost:3306/";
+	private static final String URL = "jdbc:mysql://localhost:3306/"; //node3040-env-8115366.sp.skdrive.net
 	private static final String DBNAME = "vetdb";
 	private static final String USUARIO = "root";
-	private static final String CLAVE = "";
+	private static final String CLAVE = ""; // KKSabs68684
 	
 	public Connection getConexion() {
 		Connection conexion = null;

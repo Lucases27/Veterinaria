@@ -38,20 +38,6 @@
 			<c:redirect url="Inicio"/>
 		</c:when>
 	</c:choose>
-	<div id="topbar" class="d-flex align-items-center fixed-top">
-		<div class="container d-flex justify-content-between">
-			<div class="contact-info d-flex align-items-center">
-				<i class="bi bi-envelope"></i> <a href="mailto:Simplevet.arg@gmail.com">Simplevet.arg@gmail.com</a>
-				<i class="bi bi-phone"></i> 4272-4759
-			</div>
-			<div class="d-none d-lg-flex social-links align-items-center">
-				<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-				<a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-				<a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-				<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-			</div>
-		</div>
-	</div>
 	<!-- HEADER -->
 	<jsp:include page="includes/header.jsp"></jsp:include>
 	<!-- ======= Hero Section ======= -->
@@ -77,13 +63,11 @@
 				<br>
 				<br>
 				<div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
-					<!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a> -->
 				</div>
 				<div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
 					<h3>Sobre la Aplicación</h3>
 					<p>
 						El objetivo de esta aplicación es simplificar la actividad de la recepción y administración de turnos para ambos modelos de usuario, mediante la modalidad a distancia (Online).
-						Proporcionar una forma más cómoda y segura para la compra y venta de productos específicos proporcionados por los mismos especialistas certificando la confiabilidad de los mismos.
 					</p>
 				</div>
 			</div>
@@ -122,21 +106,21 @@
 					<div class="col-lg-4 col-md-6 d-flex ">
 						<div class="icon-box">
 							<div class="icon"><i class="fas fa-heartbeat"></i></div>
-							<h4><a href="">Clínica general</a></h4>
+							<h4>Clínica general</h4>
 							<p >Consultas médicas.<br>Desparacitaciones.<br>Vacunaciones.<br>Entre otros.</p>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 d-flex ">
 						<div class="icon-box">
 							<div class="icon"><i class="fas fa-notes-medical"></i></div>
-							<h4><a href="">Urgencias</a></h4>
+							<h4>Urgencias</h4>
 							<p>Veterinarios a domicilio.<br>Emergencias 24 horas.</p>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 d-flex ">
 						<div class="icon-box">
 							<div class="icon"><i class="fas fa-hospital-user"></i></div>
-							<h4><a href="">Interconsultas</a></h4>
+							<h4>Interconsultas</h4>
 							<p>Derivaciones.<br>Hospitalización.<br>Certificados para viajes.</p>
 						</div>
 					</div>
