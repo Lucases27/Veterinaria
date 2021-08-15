@@ -53,6 +53,7 @@
 							<label for="pass">Contraseña Actual:</label>
 							<input class="form-control" type="password" name="pass" id="pass" placeholder="Contraseña Actual" 
 								required min="4" max="30" value="<%out.print(session.getAttribute("pass"));%>"/>
+							<input type="button" class="btn btn-outline-dark btn-sm" id="verPasswordBtn" value ="Ver contraseña">
 						</div>
 						<div class="col-12 form-group mb-0">
 							<label for="pass1">Nueva Contraseña:</label>

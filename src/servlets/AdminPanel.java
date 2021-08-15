@@ -31,7 +31,8 @@ public class AdminPanel extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String url = "panel.jsp?adminPanel=1";
-		if (session.getAttribute("isAdmin") == null) {
+		
+		if (session.getAttribute("isAdmin") == null || session == null) {
 			url = "index.jsp";
 			response.sendRedirect(url);
 			return;
