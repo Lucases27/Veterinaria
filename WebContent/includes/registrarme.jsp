@@ -8,7 +8,7 @@
 		</c:when>
 	</c:choose>
 
-<section id="secreg" class="">
+<section id="secreg" class="mt-5">
   <div class="container">
     <div class="section-title">
       <h2 id="h2">Registro</h2>
@@ -23,7 +23,8 @@
 	      	</div>
   			<div class="col-md-12">
 		        <label  class="form-label">Contraseña</label>
-		        <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña"> 
+		        <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña">
+		        <input type="button" class="btn btn-outline-dark btn-sm" id="verPasswordBtn" value ="Ver contraseña">
 		   	</div>
 	      	<div class="col-md-12">
 		        <label class="form-label">Email</label>
@@ -33,10 +34,7 @@
 		        <label  class="form-label">Telefono</label>
 		        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="1111111111"> 
 		    </div>
-		    <div class="col-md-12 form-check mt-3" id="">
-		        <input class="form-check-input" type="checkbox" name="veterinario" value="True" id="veterinario" >
-		    </div>
-		    <div class="col-12 text-center mb-n5">
+		    <div class="col-12 text-center mb-n5 mt-3">
 		    	<button class="btn btn-primary center-block" type="submit" name="register">Enviar</button>
 			</div>
     	</div>    	

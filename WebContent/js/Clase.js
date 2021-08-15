@@ -15,3 +15,13 @@ function MostrarReg(){
     document.getElementById("faq").style.display="none";
 }
 
+
+const $pass = document.querySelector("#pass");
+const $verPasswordBtn = document.querySelector("#verPasswordBtn");
+
+if($verPasswordBtn){
+	$verPasswordBtn.onclick = () =>{
+		$pass.type == "password" ? $pass.type = "text" : $pass.type = "password";
+	}	
+}
+

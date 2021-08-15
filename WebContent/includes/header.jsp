@@ -6,7 +6,7 @@
 	<div class="container d-flex justify-content-between">
 		<div class="contact-info d-flex align-items-center">
 			<i class="bi bi-envelope"></i> <a href="mailto:Simplevet.arg@gmail.com">Simplevet.arg@gmail.com</a>
-			<i class="bi bi-phone"></i> 4272-4759
+			<i class="bi bi-phone"></i> 
 		</div>
 		<div class="d-none d-lg-flex social-links align-items-center">
 			<!-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> -->
@@ -45,6 +45,6 @@
 			</ul>
  			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav><!-- .navbar -->
-   		<a href="https://api.whatsapp.com/send?phone=1122534578" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline">Consulta vía </span>WhatsApp</a>
+   		<a href="https://api.whatsapp.com/send?phone=+5491122534578" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline">Consulta vía </span>WhatsApp</a>
 	</div>
 </header>
