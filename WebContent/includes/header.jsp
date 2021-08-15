@@ -45,6 +45,6 @@
 			</ul>
  			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav><!-- .navbar -->
-   		<a href="https://api.whatsapp.com/send?phone=+5491122534578" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline">Consulta vía </span>WhatsApp</a>
+   		<a href="https://api.whatsapp.com/send?phone=+5491122534578" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline">Consulta vÃ­a </span>WhatsApp</a>
 	</div>
 </header>
